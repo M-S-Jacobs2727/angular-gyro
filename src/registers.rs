@@ -13,3 +13,5 @@ pub(crate) const OUT_Y_H: u8 = 0x2b;
 pub(crate) const OUT_Z_L: u8 = 0x2c;
 pub(crate) const OUT_Z_H: u8 = 0x2d;
 pub(crate) const OUT_ANG_ALL: u8 = 0xa8; // == 0x28 | 0x80 (MSB indicates continuous read mode)
+
+pub(crate) const MASK_SENSITIVITY: u8 = 0b00110000;
