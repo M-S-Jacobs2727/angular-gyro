@@ -8,18 +8,37 @@ pub enum Sensitivity {
 }
 
 #[derive(Copy, Clone)]
-pub(crate) struct Settings {
-    sensitivity: Sensitivity,
+pub enum OutputDataRate {
+    Hz100 = 0,
+    Hz200 = 1,
+    Hz400 = 2,
+    Hz800 = 3,
 }
 
-impl Settings {
-    pub fn new() -> Self {
-        Self { sensitivity: Sensitivity::Dps250 }
-    }
-    pub fn set_sensitivity(&mut self, sensitivity: Sensitivity) {
-        self.sensitivity = sensitivity;
-    }
-    pub fn sensitivity(&self) -> Sensitivity {
-        self.sensitivity
-    }
+#[derive(Copy, Clone)]
+pub enum Bandwidth {
+    Low = 0,
+    Medium = 1,
+    High = 2,
+    Highest = 3,
+}
+
+#[derive(Copy, Clone)]
+pub enum AxesEnabled {
+    SLEEP = 0,
+    X = 1,
+    Y = 2,
+    XY = 3,
+    Z = 4,
+    XZ = 5,
+    YZ = 6,
+    XYZ = 7,
+}
+
+#[derive(Copy, Clone)]
+pub struct Settings {
+    pub sensitivity: Sensitivity,
+    pub data_rate: OutputDataRate,
+    pub bandwidth: Bandwidth,
+    pub axes_enabled: AxesEnabled,
 }
